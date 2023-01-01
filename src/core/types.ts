@@ -7,7 +7,9 @@ export type ToastPosition =
   | 'top-right'
   | 'bottom-left'
   | 'bottom-center'
-  | 'bottom-right';
+  | 'bottom-right'
+  | 'center-right'
+  | 'center-left';
 
 export type Renderable = JSX.Element | string | null;
 

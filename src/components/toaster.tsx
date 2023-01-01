@@ -48,9 +48,17 @@ const getPositionStyle = (
   position: ToastPosition,
   offset: number
 ): React.CSSProperties => {
-  const top = position.includes('top');
-  const verticalStyle: React.CSSProperties = top ? { top: 0 } : { bottom: 0 };
-  const horizontalStyle: React.CSSProperties = position.includes('center')
+  const top = position.includes('top') || position.includes('center-');
+  const verticalStyle: React.CSSProperties = top
+    ? {
+        top: position.includes('center-') ? '50%' : 0,
+      }
+    : { bottom: 0 };
+  const horizontalStyle: React.CSSProperties = position.includes('center-right')
+    ? { justifyContent: 'flex-end' }
+    : position.includes('center-left')
+    ? { justifyContent: 'flex-start' }
+    : position.includes('center')
     ? {
         justifyContent: 'center',
       }
